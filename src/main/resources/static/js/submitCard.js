@@ -1,5 +1,32 @@
 const API_URL = 'http://vps.cpe-sn.fr:8083/card';
 
+// Get progress elements
+const energyProgress = document.getElementById('energyProgress');
+const hpProgress = document.getElementById('hpProgress');
+const defenceProgress = document.getElementById('defenceProgress');
+const attackProgress = document.getElementById('attackProgress');
+
+// Update progress bars
+function updateProgressBar(progressBar, value) {
+    progressBar.querySelector('.bar').style.width = `${value}%`;
+    progressBar.querySelector('.label').textContent = value;
+    progressBar.dataset.value = value;
+}
+
+// Attach event listeners to progress bars
+[energyProgress, hpProgress, defenceProgress, attackProgress].forEach(progressBar => {
+    progressBar.addEventListener('click', event => {
+        const rect = progressBar.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const width = rect.width;
+        const value = Math.round((x / width) * 100);
+        updateProgressBar(progressBar, value);
+
+        const inputId = progressBar.id.replace('Progress', '');
+        document.getElementById(inputId).value = value;
+    });
+});
+
 document.getElementById('cardForm').addEventListener('submit', (event) => {
     event.preventDefault();
 
