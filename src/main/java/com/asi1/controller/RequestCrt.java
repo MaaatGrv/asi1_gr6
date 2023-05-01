@@ -28,9 +28,9 @@ public class RequestCrt {
 	// return "searchCard";
 	// }
 
-	// Path : /search.html
-	@RequestMapping(value = { "/search" }, method = RequestMethod.GET)
-	public String search(Model model) {
+	// Path : /searchCard.html
+	@RequestMapping(value = { "/searchCard" }, method = RequestMethod.GET)
+	public String searchCard(Model model) {
 		return "searchCard";
 	}
 
