@@ -1,9 +1,13 @@
-package com.asi1.controller;
+package com.asi1.GameCard.rest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.asi1.GameCard.model.Card;
 
 @Controller
 public class RequestCrt {
@@ -16,22 +20,17 @@ public class RequestCrt {
 		return "index";
 	}
 
-	// Path : /fetch.html
-	@RequestMapping(value = { "/fetch" }, method = RequestMethod.GET)
-	public String fetch(Model model) {
-		return "fetch";
+	@GetMapping("/create-card")
+	public String showCreateCardForm(Model model) {
+		model.addAttribute("card", new Card());
+		System.out.println("coucou");
+		return "create-card";
 	}
 
-	// // Path : /searchCard.html
-	// @RequestMapping(value = { "/searchCard" }, method = RequestMethod.GET)
-	// public String searchCard(Model model) {
-	// return "searchCard";
-	// }
-
-	// Path : /searchCard.html
-	@RequestMapping(value = { "/searchCard" }, method = RequestMethod.GET)
-	public String searchCard(Model model) {
-		return "searchCard";
+	@PostMapping("/create-card")
+	public String createCard(Card card, Model model) {
+		// Simulez la sauvegarde de la carte et l'affichage des données
+		model.addAttribute("card", card);
+		return "display-card";
 	}
-
 }
