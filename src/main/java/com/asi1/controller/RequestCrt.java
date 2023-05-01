@@ -15,4 +15,23 @@ public class RequestCrt {
 		model.addAttribute("messageLocal", messageLocal);
 		return "index";
 	}
+
+	// Path : /fetch.html
+	@RequestMapping(value = { "/fetch" }, method = RequestMethod.GET)
+	public String fetch(Model model) {
+		return "fetch";
+	}
+
+	// // Path : /searchCard.html
+	// @RequestMapping(value = { "/searchCard" }, method = RequestMethod.GET)
+	// public String searchCard(Model model) {
+	// return "searchCard";
+	// }
+
+	// Path : /search.html
+	@RequestMapping(value = { "/search" }, method = RequestMethod.GET)
+	public String search(Model model) {
+		return "searchCard";
+	}
+
 }
