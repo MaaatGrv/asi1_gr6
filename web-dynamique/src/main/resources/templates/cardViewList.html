@@ -1,0 +1,30 @@
+  <!DOCTYPE HTML>
+  <html xmlns:th="http://www.thymeleaf.org">
+  <head>
+  <meta charset="UTF-8" />
+  <title>Welcome</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+  </head>
+  <body>
+  	<div th:replace="fragments/header :: header">
+  		<h1> THIS IS A DEFAULT HEADER</h1>
+  	</div>
+  	<ul>
+  		<li th:each="card : ${cardList}">
+  			<div>
+  				<img th:src="${card.imgUrl}" alt="">
+	    		<h3 th:utext="${card.name}">...</h3>
+	    		<div>
+	    			<p th:utext="${card.description}">
+	    			</p>	
+	    		</div>
+	    		<h5 th:text="'Affinity:  '+${card.Affinity}">...</h5>
+	    		<h5 th:text="'HP:  '+${card.Hp}">...</h5>
+	    		<h5 th:text="'Energy:  '+${card.Energy}">...</h5>
+	    		<h5 th:text="'Attack:  '+${card.Attack}">...</h5>
+	    		<h5 th:text="'Defense:  '+${card.Defence}">...</h5>
+  			</div>
+  		<li>
+  	</ul>
+  </body>
+  </html>

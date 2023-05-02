@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Welcome</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+
+</head>
+<body>
+		<div th:replace="fragments/header :: header">
+		<h1> THIS IS A DEFAULT HEADER</h1>
+	</div>
+	<form th:action="@{/addcard}"
+         th:object="${cardForm}" method="POST">
+		<fieldset >
+			<legend >Add your Card ! </legend>
+			<div >
+				<label for="form-name">Name</label>
+				<div >
+					<input id="form-name" type="text"
+						placeholder="Card name..." th:field="*{name}">
+				</div>
+			</div>
+			<div >
+				<label  for="form-description">Description</label>
+				<div >
+					<input  id="form-description" type="text"
+						placeholder="Card description..." th:field="*{description}">
+				</div>
+				<label  for="form-Affinity">Affinity</label>
+				<div >
+					<input id="form-Affinity" type="text"
+						placeholder="Card affinity..." th:field="*{Affinity}">
+				</div>
+				<label  for="form-Hp">HP</label>
+				<div >
+					<input  id="form-Hp" type="text"
+						placeholder="Hp Card..." th:field="*{Hp}">
+				</div>
+				<label  for="form-Energy">Energy</label>
+				<div >
+					<input  id="form-Energy" type="text"
+						placeholder="Energy Card..." th:field="*{Energy}">
+				</div>
+				<label  for="form-Attack">Attack</label>
+				<div >
+					<input  id="form-Attack" type="text"
+						placeholder="Attack Card..." th:field="*{Attack}">
+				</div>
+				<label  for="form-Defence">Defense</label>
+				<div >
+					<input  id="form-Defence" type="text"
+						placeholder="Defense Card..." th:field="*{Defence}">
+				</div>
+				<label  for="form-imgUrl">Image URL</label>
+				<div >
+					<input  id="form-imgUrl" type="text"
+						placeholder="Card imageUrl..." th:field="*{imgUrl}">
+				</div>
+			</div>
+			<div >
+				<input type="submit"  class="uk-button uk-button-default" value="Create" />
+			</div>
+
+		</fieldset>
+	</form>
+
+</body>
+
+</html>
