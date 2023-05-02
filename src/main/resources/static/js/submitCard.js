@@ -28,6 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    //  Ne fonctionne pas après la deuxième étape
+
     // document.getElementById('cardForm').addEventListener('submit', (event) => {
     //     event.preventDefault();
 
