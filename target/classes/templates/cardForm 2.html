@@ -8,11 +8,14 @@
     <script type="text/javascript" th:src="@{/js/script.js}"></script>
 </head>
 <body>
+    <div th:replace="fragments/header :: header">
+        <h1> THIS IS A DEFAULT HEADER</h1>
+    </div>
     <form th:action="@{/create-card}"
           th:object="${cardForm}" method="POST">
         <fieldset>
             <legend>Ajouter une nouvelle carte</legend>
-            <!-- name, description, family, affinity, imgUrl, smallImgUrl, energy, hp, defense, attack, price -->
+            <!-- name, description, family, affinity, imgUrl, samallImgUrl, energy, hp, defense, attack, price -->
             <div>
                 <label for="form-name">Nom</label>
                 <div>
@@ -28,7 +31,7 @@
                 </div>
             </div>
             <div>
-                <label for="form-family">Famille</label>
+                <label for="'form-family">Famille</label>
                 <div>
                     <select id="form-family" th:field="*{family}">
                         <option value="1">Famille 1</option>

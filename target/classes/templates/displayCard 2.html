@@ -8,6 +8,9 @@
     <script type="text/javascript" th:src="@{/js/script.js}"></script>
 </head>
 <body>
+    <div th:replace="fragments/header :: header">
+        <h1> THIS IS A DEFAULT HEADER</h1>
+    </div>
     <h2>Informations de la carte</h2>
     <div>
         <p>Nom: <span th:text="${card.name}"></span></p>
